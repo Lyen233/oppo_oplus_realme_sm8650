@@ -1,1 +1,14 @@
-
+--- a/kernel/sched/ext.c
++++ b/kernel/sched/ext.c
+@@ -2373,6 +2373,11 @@
+ 		scx_ops_disable_task(p);
+ 		task_rq_unlock(rq, p, &rf);
+ 	}
++
++	if (p->scx) {
++		kfree(p->scx);
++		p->scx = NULL;
++	}
+ }
+ 
+ static void prio_changed_scx(struct rq *rq, struct task_struct *p, int oldprio)
