@@ -388,7 +388,7 @@ jobs:
           wget https://github.com/$GITHUB_REPOSITORY/raw/refs/heads/$GITHUB_REF_NAME/other_patch/cve-2026-43499-rtmutex-6.1.patch
           patch -p1 -F 3 < cve-2026-43499-rtmutex-6.1.patch
           # 修复 scx_pre_fork 每次 fork 泄漏 256B（OPLUS 官方源码缺陷）
-          wget https://github.com/$GITHUB_REPOSITORY/raw/refs/heads/$GITHUB_REF_NAME/other_patch/fix_scx_fork_leak.patch
+          wget https://github.com/$GITHUB_REPOSITORY/raw/refs/heads/$GITHUB_REF_NAME/other_patch/scx_leak_fix.patch
           patch -p1 -l -F 3 < fix_scx_fork_leak.patch
           
       - name: 启用网络功能增强优化配置
